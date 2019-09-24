@@ -9,5 +9,15 @@ Express -
 
     npm install express --save
 
+Sequelize - Framework para BD 
+
+    npm install sequelize --save
+    npm install -D sequelize-cli 
+
+Body Parser - middleware para as requisições
+
+    npm install body-parser --save
+
+   
 
 
