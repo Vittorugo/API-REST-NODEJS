@@ -3,7 +3,7 @@ Módulos/Frameworks instalados para criar esta aplicação ...
 
 Babel - Módulo que vai auxiliar na utilização das novas funcionalidades do ES6/7.
 
-    npm install babel --save
+    npm install --save-dev babel-cli
 
 Express -
 
