@@ -1,10 +1,17 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
 const index = require('./routes/index') 
 const task  = require('./routes/task')
 
 
 // configurações ...
+
+
+    // middleware
+
+        app.use(bodyParser.urlencoded({extended: true}))
+        app.use(bodyParser.json())
 
     //rotas 
 
