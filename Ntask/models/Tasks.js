@@ -16,8 +16,14 @@ const Task = connection.define( 'Tasks', {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            len: [2,255],
-            notEmpty: true,
+            len: {
+
+                args: [2,255],
+                msg: "Titulo muito curto"
+            },
+            notEmpty: {
+                msg: "Este campo não pode estar vazio!"
+            },
 
 
         }
