@@ -64,6 +64,84 @@ task.post('/tasks', (req, res ) => {
 })
 
 
+// Retornando do banco de dados uma task selecionada pelo id
 
+task.get('/tasks/:id', (req, res) => {
+
+    Task.findOne({where: req.params}).then( ( tasks ) => {
+
+        if ( tasks) {
+
+            res.status(200).json(tasks)
+        }else{
+
+            res.status(404).json({msg: "Id não encontrado no Banco"})
+        }
+        
+
+    }).catch( (err) => {
+
+
+        res.status(412).json({ msg:"Id não encontrado no banco!", erro: err})
+    })
+})
+
+
+// Atualizando task através do id 
+
+task.put('/tasks/:id', (req,res) => {
+
+    Task.update(req.body, {where: req.params}).then( (taks) => {
+
+        console.log(req.body)
+        
+        res.status(204).json({msg: "Alteração realizada com sucesso!"})
+    
+    }).catch( (err)=> {
+
+
+        res.status(412).json({msg: "Erro ao realizar alteração!"})
+    })
+
+
+})
+
+
+// Deletando uma task através do id 
+    // ps: Como done é uma variável boolean o bd assume seus valores como 1 ou 0. Sendo assim, devemos passar 1 ou 0 na requisição.
+
+    /*
+    task.delete('/tasks/:done', (req, res) => { 
+
+        console.log(req.params)
+        Task.destroy({where: req.params}).then( ( result ) => {
+
+            res.sendStatus(204)
+        
+        }).catch( (err) => {
+
+
+            res.sendStatus(412)
+            
+        })
+
+    })*/
+
+
+    task.delete('/tasks/:id', (req, res) => { 
+
+        console.log(req.params)
+        Task.destroy({where: req.params}).then( ( result ) => {
+
+            res.sendStatus(204)
+        
+        }).catch( (err) => {
+
+
+            res.sendStatus(412)
+            
+        })
+
+    })
 
 module.exports = task
