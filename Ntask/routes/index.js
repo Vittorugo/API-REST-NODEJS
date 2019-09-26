@@ -1,6 +1,6 @@
 const express    = require('express')
 const index = express.Router()
-const bodyParser = require('body-parser')
+
 
 const User = require('../models/Users')
 
