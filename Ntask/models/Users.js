@@ -19,6 +19,15 @@ const User = connection.define('Users', {
         validate: {
             notEmpty: {
                 msg: 'Este campo não pode ser vazio!'
+            },
+            len: {
+
+                args: [2,255],
+                msg: "Nome muito curto"
+            },
+            isAlpha: {
+
+                msg: "O nome deve conter apenas letras sem espaço!"
             }
         }
     },
