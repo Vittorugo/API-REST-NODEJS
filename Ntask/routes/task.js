@@ -130,7 +130,7 @@ task.put('/tasks/:id', (req,res) => {
 
     task.delete('/tasks/:id', (req, res) => { 
 
-        console.log(req.params)
+        
         Task.destroy({where: req.params}).then( ( result ) => {
 
             res.sendStatus(204)
