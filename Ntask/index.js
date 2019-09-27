@@ -3,6 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const index = require('./routes/index') 
 const task  = require('./routes/task')
+const user  = require('./routes/user')
 const Sequelize  = require('sequelize')
 const connection = require('./config/database')
 const User  = require('./models/Users')
@@ -44,7 +45,7 @@ const Task  = require('./models/Tasks')
 
         app.use(index)
         app.use(task)
-    
+        app.use(user)
 
     // conexao 
 
